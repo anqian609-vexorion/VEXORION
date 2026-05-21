@@ -7,7 +7,8 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif;}
 .video-bg{position:fixed;top:0;left:0;width:100vw;height:100vh;object-fit:cover;z-index:-2;}
-.mask{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.7);z-index:-1;}
+/* 超低透明度 视频原色完整显示 */
+.mask{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.3);z-index:-1;}
 body{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 30px;color:#222;min-height:100vh;}
 .top-nav{display:flex;align-items:center;justify-content:space-between;padding:25px 0;border-bottom:1px solid #e5e7eb;margin-bottom:50px;}
 .nav-logo{font-size:24px;font-weight:700;color:#08306b;}
@@ -23,7 +24,6 @@ body{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 30px;c
 #indexPage{display:block;}
 .shield-icon{text-align:center;margin:30px 0;}
 .shield-icon img{height:100px;}
-/* 后台样式 */
 .admin-box{display:none;background:#fff;padding:30px;border-radius:12px;margin:20px 0;box-shadow:0 0 10px #ccc;}
 .admin-box textarea{width:100%;height:100px;padding:10px;margin:8px 0;border:1px solid #ddd;border-radius:6px;}
 .admin-btn{padding:8px 20px;background:#08306b;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-right:10px;}
@@ -39,28 +39,29 @@ body{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 30px;c
     <div class="nav-left">
         <span class="nav-logo">VEXORION</span>
         <span class="nav-menu">
-            <a href=" 'indexPage')">首页</a >
-            <a href="javascript:showPage('aboutPage')">公司简介</a >
-            <a href="javascript:showPage('productPage')">产品发布</a >
-            <a href="javascript:showPage('tracePage')">产品溯源</a >
-            <a href="javascript:showPage('contactPage')">联系我们</a >
+            <a onclick="showPage('indexPage')">首页</a >
+            <a onclick="showPage('aboutPage')">公司简介</a >
+            <a onclick="showPage('productPage')">产品发布</a >
+            <a onclick="showPage('tracePage')">产品溯源</a >
+            <a onclick="showPage('contactPage')">联系我们</a >
         </span>
     </div>
     <div class="lang-bar">
-        <a onclick="switchLang('fr')">Français</a >
-        <a onclick="switchLang('en')">English</a >
-        <a onclick="switchLang('zh')">中文</a >
+        <a onclick="setLang('zh')">中文</a >
+        <a onclick="setLang('en')">English</a >
+        <a onclick="setLang('fr')">Français</a >
     </div>
 </div>
 
-<!-- 首页 -->
+<!-- 首页 三语独立文字 -->
 <div id="indexPage" class="page-box">
-    <h1 class="brand-title" id="txtZh">VEXORION 全球医疗防护品牌</h1>
-    <h1 class="brand-title" id="txtEn" style="display:none;">VEXORION Global Medical Protection</h1>
-    <h1 class="brand-title" id="txtFr" style="display:none;">VEXORION Protection Médicale Mondiale</h1>
-    <div class="welcome-text" id="descZh">欢迎您来到：引领全球私人医疗高标准生物防护新维度的VEXORION官方网站<br>我们将用极致的匠心服务精神，让您和您的品牌在新时代乘风破浪、一路高歌。</div>
-    <div class="welcome-text" id="descEn" style="display:none;">Welcome to the official website of VEXORION, leading the new dimension of high-standard private medical biological protection worldwide.<br>We serve with ingenuity to help you and your brand forge ahead in the new era.</div>
-    <div class="welcome-text" id="descFr" style="display:none;">Bienvenue sur le site officiel VEXORION, pionnier de la protection biologique médicale haut de gamme mondiale.<br>Nous vous accompagnons avec dévouement pour prospérer dans la nouvelle ère.</div>
+    <h1 class="brand-title zh-title">VEXORION 全球医疗防护品牌</h1>
+    <h1 class="brand-title en-title" style="display:none;">VEXORION Global Medical Protection</h1>
+    <h1 class="brand-title fr-title" style="display:none;">VEXORION Protection Médicale Mondiale</h1>
+
+    <div class="welcome-text zh-desc">欢迎您来到：引领全球私人医疗高标准生物防护新维度的VEXORION官方网站<br>我们将用极致的匠心服务精神，让您和您的品牌在新时代乘风破浪、一路高歌。</div>
+    <div class="welcome-text en-desc" style="display:none;">Welcome to the official website of VEXORION, leading the new dimension of high-standard private medical biological protection worldwide.<br>We serve with ingenuity to help you and your brand forge ahead in the new era.</div>
+    <div class="welcome-text fr-desc" style="display:none;">Bienvenue sur le site officiel VEXORION, pionnier de la protection biologique médicale haut de gamme mondiale.<br>Nous vous accompagnons avec dévouement pour prospérer dans la nouvelle ère.</div>
 </div>
 
 <!-- 公司简介 -->
@@ -88,14 +89,14 @@ body{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 30px;c
 <div id="contactPage" class="page-box">
     <h2 style="text-align:center;color:#08306b;margin-bottom:30px;">联系我们</h2>
     <div class="contact-foot">
-        <a href="https://wa.me/212702298888" target="_blank" class="wa-link">WhatsApp 全球商务对接</a >
+        <a href="http://wa.me/212702298888" target="_blank" class="wa-link">WhatsApp 全球商务对接</a >
         <p class="domain-text">官方专属域名：vexorion.ma</p >
     </div>
 </div>
 
-<!-- 简易后台面板 仅管理员可见 -->
+<!-- 简易后台 -->
 <div class="admin-box" id="adminPanel">
-    <h3>📝 网站内容简易后台（无需改代码）</h3>
+    <h3>📝 网站内容简易后台</h3>
     <p>公司简介内容：</p >
     <textarea id="editAbout"></textarea>
     <p>产品发布内容：</p >
@@ -107,21 +108,34 @@ body{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 30px;c
 </div>
 
 <script>
-//栏目切换
+// 栏目切换 纯本地切换 无任何跳转404
 function showPage(id){
-    document.querySelectorAll(".page-box").forEach(i=>i.style.display="none");
+    document.querySelectorAll(".page-box").forEach(item=>{
+        item.style.display="none";
+    })
     document.getElementById(id).style.display="block";
 }
-//语言切换
-function switchLang(t){
-["txtZh","txtEn","txtFr","descZh","descEn","descFr"].forEach(id=>{
-document.getElementById(id).style.display="none";
-});
-if(t=="zh"){txtZh.style.display="block";descZh.style.display="block"}
-if(t=="en"){txtEn.style.display="block";descEn.style.display="block"}
-if(t=="fr"){txtFr.style.display="block";descFr.style.display="block"}
+
+// 三语切换 完美独立切换 不再全部中文
+function setLang(lang){
+    document.querySelectorAll(".zh-title,.en-title,.fr-title,.zh-desc,.en-desc,.fr-desc").forEach(el=>{
+        el.style.display="none";
+    })
+    if(lang=="zh"){
+        document.querySelector(".zh-title").style.display="block";
+        document.querySelector(".zh-desc").style.display="block";
+    }
+    if(lang=="en"){
+        document.querySelector(".en-title").style.display="block";
+        document.querySelector(".en-desc").style.display="block";
+    }
+    if(lang=="fr"){
+        document.querySelector(".fr-title").style.display="block";
+        document.querySelector(".fr-desc").style.display="block";
+    }
 }
-//本地存储后台内容
+
+// 后台内容保存
 function saveData(){
 let ab=document.getElementById("editAbout").value;
 let pd=document.getElementById("editProduct").value;
@@ -132,24 +146,18 @@ localStorage.setItem("siteTrace",tc);
 document.getElementById("aboutTxt").innerText=ab;
 document.getElementById("productTxt").innerText=pd;
 document.getElementById("traceTxt").innerText=tc;
-alert("内容保存成功！刷新也不会丢失");
+alert("内容保存成功");
 }
-//打开后台
 function openAdmin(){
 document.getElementById("adminPanel").style.display="block";
 document.getElementById("editAbout").value=localStorage.getItem("siteAbout")||"";
 document.getElementById("editProduct").value=localStorage.getItem("siteProduct")||"";
 document.getElementById("editTrace").value=localStorage.getItem("siteTrace")||"";
 }
-//关闭后台
 function closeAdmin(){
 document.getElementById("adminPanel").style.display="none";
 }
-//自动判断是否进入后台
-if(location.search=="?admin"){
-openAdmin();
-}
-//页面加载读取已保存内容
+if(location.search=="?admin")openAdmin();
 window.onload=function(){
 let s1=localStorage.getItem("siteAbout");
 let s2=localStorage.getItem("siteProduct");
@@ -157,6 +165,8 @@ let s3=localStorage.getItem("siteTrace");
 if(s1)document.getElementById("aboutTxt").innerText=s1;
 if(s2)document.getElementById("productTxt").innerText=s2;
 if(s3)document.getElementById("traceTxt").innerText=s3;
+// 默认打开中文
+setLang('zh');
 }
 </script>
 </body>
