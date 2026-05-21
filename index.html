@@ -7,25 +7,26 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif;}
 .video-bg{position:fixed;top:0;left:0;width:100vw;height:100vh;object-fit:cover;z-index:-2;}
-.mask{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.85);z-index:-1;}
+.mask{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.7);z-index:-1;}
 body{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 30px;color:#222;min-height:100vh;}
-/* 顶部导航整体 */
 .top-nav{display:flex;align-items:center;justify-content:space-between;padding:25px 0;border-bottom:1px solid #e5e7eb;margin-bottom:50px;}
 .nav-logo{font-size:24px;font-weight:700;color:#08306b;}
 .nav-menu a{text-decoration:none;color:#333;font-size:16px;margin:0 15px;font-weight:500;}
 .nav-menu a:hover{color:#08306b;}
 .lang-bar a{margin-left:20px;text-decoration:none;color:#08306b;font-weight:500;font-size:16px;cursor:pointer;}
-.logo-box{text-align:center;margin:50px 0;}
-.logo-box img{height:120px;margin:0 15px;background:transparent;border:none;}
-.main-h1{text-align:center;font-size:34px;color:#08306b;font-weight:700;margin-bottom:25px;}
-.welcome-slogan{text-align:center;font-size:17px;color:#333;line-height:1.9;margin-bottom:120px;padding:0 40px;}
-.contact-foot{text-align:center;margin-top:100px;padding-top:30px;border-top:1px solid #d8e2dc;}
+.brand-title{font-size:42px;font-weight:bold;text-align:center;color:#08306b;letter-spacing:3px;margin:60px 0 20px;}
+.welcome-text{text-align:center;font-size:17px;color:#333;line-height:1.9;padding:0 40px;}
+.contact-foot{text-align:center;margin-top:80px;padding-top:30px;border-top:1px solid #d8e2dc;}
 .wa-link{display:inline-block;background:#25d366;color:#fff;padding:13px 36px;border-radius:8px;text-decoration:none;font-size:16px;font-weight:500;}
 .domain-text{margin-top:20px;color:#555;font-size:15px;}
-/* 栏目内容默认隐藏 */
-.page-box{display:none;padding:30px 0;}
-/* 默认显示首页 */
+.page-box{display:none;padding:20px 0;}
 #indexPage{display:block;}
+.shield-icon{text-align:center;margin:30px 0;}
+.shield-icon img{height:100px;}
+/* 后台样式 */
+.admin-box{display:none;background:#fff;padding:30px;border-radius:12px;margin:20px 0;box-shadow:0 0 10px #ccc;}
+.admin-box textarea{width:100%;height:100px;padding:10px;margin:8px 0;border:1px solid #ddd;border-radius:6px;}
+.admin-btn{padding:8px 20px;background:#08306b;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-right:10px;}
 </style>
 </head>
 <body>
@@ -34,7 +35,6 @@ body{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 30px;c
 </video>
 <div class="mask"></div>
 
-<!-- 顶部导航栏 -->
 <div class="top-nav">
     <div class="nav-left">
         <span class="nav-logo">VEXORION</span>
@@ -53,39 +53,38 @@ body{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 30px;c
     </div>
 </div>
 
-<!-- 首页板块 -->
+<!-- 首页 -->
 <div id="indexPage" class="page-box">
-    <div class="logo-box">
-        <img src="shield-logo.png" alt="LOGO">
-        <img src="vexorion-logo.png" alt="VEXORION">
-    </div>
-    <h1 id="txtZh" class="main-h1">VEXORION 全球医疗防护品牌</h1>
-    <h1 id="txtEn" class="main-h1" style="display:none;">VEXORION Global Medical Protection</h1>
-    <h1 id="txtFr" class="main-h1" style="display:none;">VEXORION Protection Médicale Mondiale</h1>
-    <div id="descZh" class="welcome-slogan">欢迎您来到：引领全球私人医疗高标准生物防护新维度的VEXORION官方网站<br>我们将用极致的匠心服务精神，让您和您的品牌在新时代乘风破浪、一路高歌。</div>
-    <div id="descEn" class="welcome-slogan" style="display:none;">Welcome to the official website of VEXORION, leading the new dimension of high-standard private medical biological protection worldwide.<br>We serve with ingenuity to help you and your brand forge ahead in the new era.</div>
-    <div id="descFr" class="welcome-slogan" style="display:none;">Bienvenue sur le site officiel VEXORION, pionnier de la protection biologique médicale haut de gamme mondiale.<br>Nous vous accompagnons avec dévouement pour prospérer dans la nouvelle ère.</div>
+    <h1 class="brand-title" id="txtZh">VEXORION 全球医疗防护品牌</h1>
+    <h1 class="brand-title" id="txtEn" style="display:none;">VEXORION Global Medical Protection</h1>
+    <h1 class="brand-title" id="txtFr" style="display:none;">VEXORION Protection Médicale Mondiale</h1>
+    <div class="welcome-text" id="descZh">欢迎您来到：引领全球私人医疗高标准生物防护新维度的VEXORION官方网站<br>我们将用极致的匠心服务精神，让您和您的品牌在新时代乘风破浪、一路高歌。</div>
+    <div class="welcome-text" id="descEn" style="display:none;">Welcome to the official website of VEXORION, leading the new dimension of high-standard private medical biological protection worldwide.<br>We serve with ingenuity to help you and your brand forge ahead in the new era.</div>
+    <div class="welcome-text" id="descFr" style="display:none;">Bienvenue sur le site officiel VEXORION, pionnier de la protection biologique médicale haut de gamme mondiale.<br>Nous vous accompagnons avec dévouement pour prospérer dans la nouvelle ère.</div>
 </div>
 
-<!-- 公司简介 预留页 -->
+<!-- 公司简介 -->
 <div id="aboutPage" class="page-box">
     <h2 style="text-align:center;color:#08306b;margin-bottom:30px;">公司简介</h2>
-    <p style="line-height:2.2;font-size:16px;text-align:center;">此处后期填写中英法三语企业介绍内容</p >
+    <p id="aboutTxt" style="line-height:2.2;font-size:16px;text-align:center;">此处填写企业实力、经营范围、海外布局等内容</p >
 </div>
 
-<!-- 产品发布 预留页 -->
+<!-- 产品发布 -->
 <div id="productPage" class="page-box">
     <h2 style="text-align:center;color:#08306b;margin-bottom:30px;">产品发布专区</h2>
-    <p style="line-height:2.2;font-size:16px;text-align:center;">后期后台直接上架产品、图文展示</p >
+    <p id="productTxt" style="line-height:2.2;font-size:16px;text-align:center;">每日上新医疗耗材、新品介绍、规格参数均可填写</p >
 </div>
 
-<!-- 产品溯源 预留页 -->
+<!-- 产品溯源 -->
 <div id="tracePage" class="page-box">
-    <h2 style="text-align:center;color:#08306b;margin-bottom:30px;">产品溯源体系</h2>
-    <p style="line-height:2.2;font-size:16px;text-align:center;">填写供应链、质检、产地溯源相关内容</p >
+    <h2 style="text-align:center;color:#08306b;margin-bottom:20px;">产品溯源体系</h2>
+    <div class="shield-icon">
+        <img src="shield-logo.png" alt="防护盾图标">
+    </div>
+    <p id="traceTxt" style="line-height:2.2;font-size:16px;text-align:center;">填写原料采购、生产流程、质检标准、跨境溯源信息</p >
 </div>
 
-<!-- 联系我们 预留页 -->
+<!-- 联系我们 -->
 <div id="contactPage" class="page-box">
     <h2 style="text-align:center;color:#08306b;margin-bottom:30px;">联系我们</h2>
     <div class="contact-foot">
@@ -94,25 +93,70 @@ body{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 30px;c
     </div>
 </div>
 
+<!-- 简易后台面板 仅管理员可见 -->
+<div class="admin-box" id="adminPanel">
+    <h3>📝 网站内容简易后台（无需改代码）</h3>
+    <p>公司简介内容：</p >
+    <textarea id="editAbout"></textarea>
+    <p>产品发布内容：</p >
+    <textarea id="editProduct"></textarea>
+    <p>产品溯源内容：</p >
+    <textarea id="editTrace"></textarea>
+    <button class="admin-btn" onclick="saveData()">一键保存修改</button>
+    <button class="admin-btn" onclick="closeAdmin()">关闭后台</button>
+</div>
+
 <script>
-// 栏目页面切换
+//栏目切换
 function showPage(id){
-    document.querySelectorAll(".page-box").forEach(item=>{
-        item.style.display="none";
-    })
+    document.querySelectorAll(".page-box").forEach(i=>i.style.display="none");
     document.getElementById(id).style.display="block";
 }
-// 语言切换不变
+//语言切换
 function switchLang(t){
-document.getElementById("txtZh").style.display="none";
-document.getElementById("txtEn").style.display="none";
-document.getElementById("txtFr").style.display="none";
-document.getElementById("descZh").style.display="none";
-document.getElementById("descEn").style.display="none";
-document.getElementById("descFr").style.display="none";
+["txtZh","txtEn","txtFr","descZh","descEn","descFr"].forEach(id=>{
+document.getElementById(id).style.display="none";
+});
 if(t=="zh"){txtZh.style.display="block";descZh.style.display="block"}
 if(t=="en"){txtEn.style.display="block";descEn.style.display="block"}
 if(t=="fr"){txtFr.style.display="block";descFr.style.display="block"}
+}
+//本地存储后台内容
+function saveData(){
+let ab=document.getElementById("editAbout").value;
+let pd=document.getElementById("editProduct").value;
+let tc=document.getElementById("editTrace").value;
+localStorage.setItem("siteAbout",ab);
+localStorage.setItem("siteProduct",pd);
+localStorage.setItem("siteTrace",tc);
+document.getElementById("aboutTxt").innerText=ab;
+document.getElementById("productTxt").innerText=pd;
+document.getElementById("traceTxt").innerText=tc;
+alert("内容保存成功！刷新也不会丢失");
+}
+//打开后台
+function openAdmin(){
+document.getElementById("adminPanel").style.display="block";
+document.getElementById("editAbout").value=localStorage.getItem("siteAbout")||"";
+document.getElementById("editProduct").value=localStorage.getItem("siteProduct")||"";
+document.getElementById("editTrace").value=localStorage.getItem("siteTrace")||"";
+}
+//关闭后台
+function closeAdmin(){
+document.getElementById("adminPanel").style.display="none";
+}
+//自动判断是否进入后台
+if(location.search=="?admin"){
+openAdmin();
+}
+//页面加载读取已保存内容
+window.onload=function(){
+let s1=localStorage.getItem("siteAbout");
+let s2=localStorage.getItem("siteProduct");
+let s3=localStorage.getItem("siteTrace");
+if(s1)document.getElementById("aboutTxt").innerText=s1;
+if(s2)document.getElementById("productTxt").innerText=s2;
+if(s3)document.getElementById("traceTxt").innerText=s3;
 }
 </script>
 </body>
