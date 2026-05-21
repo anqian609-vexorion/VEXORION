@@ -7,15 +7,30 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif;}
 .video-bg{position:fixed;top:0;left:0;width:100vw;height:100vh;object-fit:cover;z-index:-2;}
-/* 超低透明度 视频原色完整显示 */
-.mask{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.3);z-index:-1;}
+.mask{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.5);z-index:-1;}
 body{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 30px;color:#222;min-height:100vh;}
 .top-nav{display:flex;align-items:center;justify-content:space-between;padding:25px 0;border-bottom:1px solid #e5e7eb;margin-bottom:50px;}
 .nav-logo{font-size:24px;font-weight:700;color:#08306b;}
 .nav-menu a{text-decoration:none;color:#333;font-size:16px;margin:0 15px;font-weight:500;}
 .nav-menu a:hover{color:#08306b;}
 .lang-bar a{margin-left:20px;text-decoration:none;color:#08306b;font-weight:500;font-size:16px;cursor:pointer;}
-.brand-title{font-size:42px;font-weight:bold;text-align:center;color:#08306b;letter-spacing:3px;margin:60px 0 20px;}
+/* 主商标大写字母样式 */
+.brand-main{
+    font-family:'BANKGOTHIC MD BT',Arial Black,sans-serif;
+    font-size:52px;
+    text-align:center;
+    color:#08306b;
+    letter-spacing:5px;
+    margin:30px 0 5px;
+    line-height:1;
+}
+/* 副标小字样式 */
+.brand-sub{
+    font-size:20px;
+    text-align:center;
+    color:#333;
+    margin-bottom:40px;
+}
 .welcome-text{text-align:center;font-size:17px;color:#333;line-height:1.9;padding:0 40px;}
 .contact-foot{text-align:center;margin-top:80px;padding-top:30px;border-top:1px solid #d8e2dc;}
 .wa-link{display:inline-block;background:#25d366;color:#fff;padding:13px 36px;border-radius:8px;text-decoration:none;font-size:16px;font-weight:500;}
@@ -53,31 +68,35 @@ body{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 30px;c
     </div>
 </div>
 
-<!-- 首页 三语独立文字 -->
+<!-- 首页 -->
 <div id="indexPage" class="page-box">
-    <h1 class="brand-title zh-title">VEXORION 全球医疗防护品牌</h1>
-    <h1 class="brand-title en-title" style="display:none;">VEXORION Global Medical Protection</h1>
-    <h1 class="brand-title fr-title" style="display:none;">VEXORION Protection Médicale Mondiale</h1>
-
-    <div class="welcome-text zh-desc">欢迎您来到：引领全球私人医疗高标准生物防护新维度的VEXORION官方网站<br>我们将用极致的匠心服务精神，让您和您的品牌在新时代乘风破浪、一路高歌。</div>
+    <div class="brand-main">VEXORION</div>
+    <div class="brand-sub">全球医疗防护品牌</div>
+    <div class="welcome-text zh-desc">欢迎您来到：引领全球私人医疗高标准生物防护新维度-VEXORION官方网站<br>我们将用极致的匠心服务精神，让您和您的品牌在新时代乘风破浪、一路高歌。</div>
     <div class="welcome-text en-desc" style="display:none;">Welcome to the official website of VEXORION, leading the new dimension of high-standard private medical biological protection worldwide.<br>We serve with ingenuity to help you and your brand forge ahead in the new era.</div>
     <div class="welcome-text fr-desc" style="display:none;">Bienvenue sur le site officiel VEXORION, pionnier de la protection biologique médicale haut de gamme mondiale.<br>Nous vous accompagnons avec dévouement pour prospérer dans la nouvelle ère.</div>
 </div>
 
 <!-- 公司简介 -->
 <div id="aboutPage" class="page-box">
+    <div class="brand-main">VEXORION</div>
+    <div class="brand-sub">全球医疗防护品牌</div>
     <h2 style="text-align:center;color:#08306b;margin-bottom:30px;">公司简介</h2>
     <p id="aboutTxt" style="line-height:2.2;font-size:16px;text-align:center;">此处填写企业实力、经营范围、海外布局等内容</p >
 </div>
 
 <!-- 产品发布 -->
 <div id="productPage" class="page-box">
+    <div class="brand-main">VEXORION</div>
+    <div class="brand-sub">全球医疗防护品牌</div>
     <h2 style="text-align:center;color:#08306b;margin-bottom:30px;">产品发布专区</h2>
     <p id="productTxt" style="line-height:2.2;font-size:16px;text-align:center;">每日上新医疗耗材、新品介绍、规格参数均可填写</p >
 </div>
 
 <!-- 产品溯源 -->
 <div id="tracePage" class="page-box">
+    <div class="brand-main">VEXORION</div>
+    <div class="brand-sub">全球医疗防护品牌</div>
     <h2 style="text-align:center;color:#08306b;margin-bottom:20px;">产品溯源体系</h2>
     <div class="shield-icon">
         <img src="shield-logo.png" alt="防护盾图标">
@@ -87,6 +106,8 @@ body{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 30px;c
 
 <!-- 联系我们 -->
 <div id="contactPage" class="page-box">
+    <div class="brand-main">VEXORION</div>
+    <div class="brand-sub">全球医疗防护品牌</div>
     <h2 style="text-align:center;color:#08306b;margin-bottom:30px;">联系我们</h2>
     <div class="contact-foot">
         <a href="http://wa.me/212702298888" target="_blank" class="wa-link">WhatsApp 全球商务对接</a >
@@ -108,34 +129,18 @@ body{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 30px;c
 </div>
 
 <script>
-// 栏目切换 纯本地切换 无任何跳转404
 function showPage(id){
     document.querySelectorAll(".page-box").forEach(item=>{
         item.style.display="none";
     })
     document.getElementById(id).style.display="block";
 }
-
-// 三语切换 完美独立切换 不再全部中文
 function setLang(lang){
-    document.querySelectorAll(".zh-title,.en-title,.fr-title,.zh-desc,.en-desc,.fr-desc").forEach(el=>{
+    document.querySelectorAll(".zh-desc,.en-desc,.fr-desc").forEach(el=>{
         el.style.display="none";
     })
-    if(lang=="zh"){
-        document.querySelector(".zh-title").style.display="block";
-        document.querySelector(".zh-desc").style.display="block";
-    }
-    if(lang=="en"){
-        document.querySelector(".en-title").style.display="block";
-        document.querySelector(".en-desc").style.display="block";
-    }
-    if(lang=="fr"){
-        document.querySelector(".fr-title").style.display="block";
-        document.querySelector(".fr-desc").style.display="block";
-    }
+    document.querySelector("."+lang+"-desc").style.display="block";
 }
-
-// 后台内容保存
 function saveData(){
 let ab=document.getElementById("editAbout").value;
 let pd=document.getElementById("editProduct").value;
@@ -165,7 +170,6 @@ let s3=localStorage.getItem("siteTrace");
 if(s1)document.getElementById("aboutTxt").innerText=s1;
 if(s2)document.getElementById("productTxt").innerText=s2;
 if(s3)document.getElementById("traceTxt").innerText=s3;
-// 默认打开中文
 setLang('zh');
 }
 </script>
