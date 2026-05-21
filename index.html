@@ -1,63 +1,78 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>VEXORION Official</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",sans-serif;}
-        body{background: linear-gradient(120deg,#edf2fb,#f8fafc);color:#222; max-width:1100px;margin:0 auto;padding:30px;min-height:100vh;}
-        .lang-bar{text-align:right;margin-bottom:40px;}
-        .lang-bar a{margin-left:20px;text-decoration:none;color:#08306b;font-weight:500;font-size:16px;cursor:pointer;}
-        .logo-box{text-align:center;margin:50px 0;}
-        .logo-box img{height:120px;margin:0 15px;background:transparent;border:none;}
-        .main-h1{text-align:center;font-size:34px;color:#08306b;font-weight:700;margin-bottom:25px;}
-        .welcome-slogan{text-align:center;font-size:17px;color:#333;line-height:1.9;margin-bottom:120px;padding:0 40px;}
-        .contact-foot{text-align:center;margin-top:100px;padding-top:30px;border-top:1px solid #d8e2dc;}
-        .wa-link{display:inline-block;background:#25d366;color:#fff;padding:13px 36px;border-radius:8px;text-decoration:none;font-size:16px;font-weight:500;}
-        .domain-text{margin-top:20px;color:#555;font-size:15px;}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>VEXORION Official</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",sans-serif;}
+body{
+width:100%;
+min-height:100vh;
+max-width:1100px;
+margin:0 auto;
+padding:30px;
+background:linear-gradient(-45deg,#e8f0fc,#dbeafe,#eff6ff,#f0f4ff);
+background-size:400% 400%;
+animation:bgMove 12s ease infinite;
+color:#222;
+}
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+.lang-bar{text-align:right;margin-bottom:40px;}
+.lang-bar a{margin-left:20px;text-decoration:none;color:#08306b;font-weight:500;font-size:16px;cursor:pointer;}
+.logo-box{text-align:center;margin:50px 0;}
+.logo-box img{height:120px;margin:0 15px;background:transparent;border:none;}
+.main-h1{text-align:center;font-size:34px;color:#08306b;font-weight:700;margin-bottom:25px;}
+.welcome-slogan{text-align:center;font-size:17px;color:#333;line-height:1.9;margin-bottom:120px;padding:0 40px;}
+.contact-foot{text-align:center;margin-top:100px;padding-top:30px;border-top:1px solid #d8e2dc;}
+.wa-link{display:inline-block;background:#25d366;color:#fff;padding:13px 36px;border-radius:8px;text-decoration:none;font-size:16px;font-weight:500;}
+.domain-text{margin-top:20px;color:#555;font-size:15px;}
+</style>
 </head>
 <body>
-    <div class="lang-bar">
-        <a onclick="switchLang('fr')">Français</a >
-        <a onclick="switchLang('en')">English</a >
-        <a onclick="switchLang('zh')">中文</a >
-    </div>
-    <div class="logo-box">
-        <img src="shield-logo.png" alt="LOGO">
-        <img src="vexorion-logo.png" alt="VEXORION">
-    </div>
-    <h1 id="txtZh" class="main-h1">VEXORION 全球医疗防护品牌</h1>
-    <h1 id="txtEn" class="main-h1" style="display:none;">VEXORION Global Medical Protection</h1>
-    <h1 id="txtFr" class="main-h1" style="display:none;">VEXORION Protection Médicale Mondiale</h1>
-    <div id="descZh" class="welcome-slogan">
-欢迎您来到：引领全球私人医疗高标准生物防护新维度的VEXORION官方网站<br>
+<div class="lang-bar">
+<a onclick="switchLang('fr')">Français</a >
+<a onclick="switchLang('en')">English</a >
+<a onclick="switchLang('zh')">中文</a >
+</div>
+<div class="logo-box">
+<img src="shield-logo.png" alt="LOGO">
+<img src="vexorion-logo.png" alt="VEXORION">
+</div>
+<h1 id="txtZh" class="main-h1">VEXORION 全球医疗防护品牌</h1>
+<h1 id="txtEn" class="main-h1" style="display:none;">VEXORION Global Medical Protection</h1>
+<h1 id="txtFr" class="main-h1" style="display:none;">VEXORION Protection Médicale Mondiale</h1>
+<div id="descZh" class="welcome-slogan">
+欢迎您来到：引领全球私人医疗高标准生物防护新维度--VEXORION官方网站<br>
 我们将用极致的匠心服务精神，让您和您的品牌在新时代乘风破浪、一路高歌。
-    </div>
-    <div id="descEn" class="welcome-slogan" style="display:none;">
+</div>
+<div id="descEn" class="welcome-slogan" style="display:none;">
 Welcome to the official website of VEXORION, leading the new dimension of high-standard private medical biological protection worldwide.<br>
 We serve with ingenuity to help you and your brand forge ahead in the new era.
-    </div>
-    <div id="descFr" class="welcome-slogan" style="display:none;">
+</div>
+<div id="descFr" class="welcome-slogan" style="display:none;">
 Bienvenue sur le site officiel VEXORION, pionnier de la protection biologique médicale haut de gamme mondiale.<br>
 Nous vous accompagnons avec dévouement pour prospérer dans la nouvelle ère.
-    </div>
-    <div class="contact-foot">
-        <a href="http://wa.me/212702298888 " target="_blank" class="wa-link">WhatsApp 全球商务对接</a >
-        <p class="domain-text">官方专属域名：vexorion.ma</p >
-    </div>
+</div>
+<div class="contact-foot">
+<a href="http://wa.me.212702298888 " target="_blank" class="wa-link">WhatsApp 全球商务对接</a >
+<p class="domain-text">官方专属域名：vexorion.ma</p >
+</div>
 <script>
 function switchLang(type){
-    document.getElementById('txtZh').style.display='none';
-    document.getElementById('txtEn').style.display='none';
-    document.getElementById('txtFr').style.display='none';
-    document.getElementById('descZh').style.display='none';
-    document.getElementById('descEn').style.display='none';
-    document.getElementById('descFr').style.display='none';
-    if(type==='zh'){document.getElementById('txtZh').style.display='block';document.getElementById('descZh').style.display='block';}
-    if(type==='en'){document.getElementById('txtEn').style.display='block';document.getElementById('descEn').style.display='block';}
-    if(type==='fr'){document.getElementById('txtFr').style.display='block';document.getElementById('descFr').style.display='block';}
+document.getElementById('txtZh').style.display='none';
+document.getElementById('txtEn').style.display='none';
+document.getElementById('txtFr').style.display='none';
+document.getElementById('descZh').style.display='none';
+document.getElementById('descEn').style.display='none';
+document.getElementById('descFr').style.display='none';
+if(type==='zh'){document.getElementById('txtZh').style.display='block';document.getElementById('descZh').style.display='block';}
+if(type==='en'){document.getElementById('txtEn').style.display='block';document.getElementById('descEn').style.display='block';}
+if(type==='fr'){document.getElementById('txtFr').style.display='block';document.getElementById('descFr').style.display='block';}
 }
 </script>
 </body>
