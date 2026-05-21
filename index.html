@@ -3,46 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Vexorion Medical Solutions</title>
+    <title>VEXORION 官方医疗防护平台</title>
     <style>
-        .lang-switch{text-align:right;margin-bottom:20px;}
-        .lang-switch a{margin:0 5px;text-decoration:none;color:#002A55;}
-        .logo{text-align:center;margin:30px 0;}
-        .logo img{filter:none!important;box-shadow:none!important;-webkit-filter:none!important;background:transparent!important;height:120px;margin:0 15px;vertical-align:middle;}
+        *{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",sans-serif;}
+        body{background:#f5f7fa;color:#222;max-width:1100px;margin:0 auto;padding:25px;}
+        /*语言切换*/
+        .lang-bar{text-align:right;margin-bottom:35px;}
+        .lang-bar a{margin:0 10px;text-decoration:none;color:#002A55;font-weight:500;}
+        /*1.彻底去除LOGO所有阴影 双重强制清除*/
+        .logo-box{text-align:center;margin:45px 0;}
+        .logo-box img{filter:none!important;box-shadow:none!important;-webkit-filter:none!important;background:transparent!important;height:120px;margin:0 18px;vertical-align:middle;}
+        /*4.主标题居中*/
+        .main-h1{text-align:center;font-size:34px;color:#002A55;font-weight:700;margin-bottom:22px;}
+        /*5.居中固定欢迎标语*/
+        .welcome-slogan{text-align:center;font-size:17px;color:#333;line-height:1.9;margin-bottom:50px;padding:0 20px;}
+        /*2.简约科技风页面样式*/
+        .product-wrap{background:#fff;padding:35px;border-radius:12px;border:1px solid #e6ecf2;}
+        .product-tit{font-size:23px;color:#002A55;margin-bottom:25px;}
+        /*3.产品下拉选择框*/
+        .pro-select{width:100%;padding:14px;font-size:16px;border:1px solid #dce3ec;border-radius:6px;margin-bottom:30px;outline:none;}
+        /*6.产品图文排版*/
+        .pro-content{display:flex;align-items:center;gap:40px;flex-wrap:wrap;}
+        .pro-pic{width:220px;height:220px;object-fit:cover;border-radius:8px;border:1px solid #eee;}
+        .pro-name{font-size:20px;font-weight:600;color:#111;margin-bottom:12px;}
+        .pro-price{font-size:18px;color:#0066cc;font-weight:600;margin-bottom:15px;}
+        .pro-desc{font-size:15px;color:#555;line-height:1.7;}
+        /*7.WHATSAPP联系区*/
+        .contact-foot{text-align:center;margin-top:60px;padding-top:25px;border-top:1px solid #e6ecf2;}
+        .wa-link{display:inline-block;background:#25d366;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:500;}
+        /*8.正确简写域名展示 vexorion.ma*/
+        .domain-text{margin-top:15px;color:#666;font-size:15px;}
     </style>
 </head>
 <body>
-    <div class="lang-switch">
-        <a href=" " onclick="showLang('fr')">Français</a >
-        <a href="#" onclick="showLang('en')">English</a >
-        <a href="#" onclick="showLang('zh')">中文</a >
+    <div class="lang-bar">
+        <a href=" " onclick="changeLang('fr')">Français</a >
+        <a href="#" onclick="changeLang('en')">English</a >
+        <a href="#" onclick="changeLang('zh')">中文</a >
     </div>
 
-    <div class="logo">
+    <!--双LOGO并排 无任何阴影-->
+    <div class="logo-box">
 <img src="shield-logo.png" alt="盾形LOGO">
-<img src="vexorion-logo.png" alt="标准LOGO">
+<img src="vexorion-logo.png" alt="品牌LOGO">
     </div>
 
-    <div id="content-fr">
-        <h1>Vexorion Medical Solutions</h1>
-        <p>Fournisseur de solutions de protection médicale pour l'Afrique du Nord.</p >
-        <p>Produits: Masques, gants, lingettes désinfectantes, draps médicaux...</p >
+    <!--三语居中主标题-->
+    <h1 id="h1-zh" class="main-h1">VEXORION 全球医疗防护品牌</h1>
+    <h1 id="h1-en" class="main-h1" style="display:none;">VEXORION Global Medical Protection</h1>
+    <h1 id="h1-fr" class="main-h1" style="display:none;">VEXORION Protection Médicale Mondiale</h1>
+
+    <!--固定居中欢迎标语 一字不差-->
+    <div id="slogan-zh" class="welcome-slogan">
+欢迎您来到：引领全球私人医疗高标准生物防护新维度的VEXORION官方网站<br>
+我们将用极致的匠心服务精神，让您和您的品牌在新时代乘风破浪、一路高歌。
+    </div>
+    <div id="slogan-en" class="welcome-slogan" style="display:none;">
+Welcome to the official website of VEXORION, leading the new dimension of high-standard private medical biological protection worldwide.<br>
+We serve with ingenuity to help you and your brand forge ahead in the new era.
+    </div>
+    <div id="slogan-fr" class="welcome-slogan" style="display:none;">
+Bienvenue sur le site officiel VEXORION, pionnier de la protection biologique médicale haut de gamme mondiale.<br>
+Nous vous accompagnons avec dévouement pour prospérer dans la nouvelle ère.
     </div>
 
-    <div id="content-en" style="display:none;">
-        <h1>Vexorion Medical Solutions</h1>
-        <p>Provider of medical protection solutions for North Africa.</p >
-        <p>Products: Masks, gloves, disinfectant wipes, medical sheets...</p >
+    <!--产品下拉分类+定价+配图-->
+    <div class="product-wrap">
+        <h2 id="pt-zh" class="product-tit">全系产品分类</h2>
+        <h2 id="pt-en" class="product-tit" style="display:none">All Products</h2>
+        <h2 id="pt-fr" class="product-tit" style="display:none">Tous les Produits</h2>
+
+        <select class="pro-select" onchange="switchProduct()">
+            <option value="mask">医用三层防护口罩</option>
+            <option value="glove">无粉丁腈检查手套</option>
+            <option value="wipe">医用消毒清洁湿巾</option>
+            <option value="mat">医用一次性护理垫单</option>
+        </select>
+
+        <div class="pro-content">
+            < img id="proImg" class="pro-pic" src="mask.jpg" alt="产品图片">
+            <div class="pro-text">
+                <h3 id="proName" class="pro-name">医用三层防护口罩</h3>
+                <div id="proPrice" class="pro-price">全球统一官方定价</div>
+                <p id="proDesc" class="pro-desc">高品质无纺布材质，三层过滤结构，透气亲肤，符合国际医疗出口标准，海内外通用基础医疗防护用品。</p >
+            </div>
+        </div>
     </div>
 
-    <div id="content-zh" style="display:none;">
-        <h1>维科里昂医疗解决方案</h1>
-        <p>为北非地区提供医疗防护解决方案。</p >
-        <p>产品: 口罩、手套、消毒湿巾、医用床单……</p >
+    <!--联系+正确域名-->
+    <div class="contact-foot">
+        <a href="https://wa.me/212600000000" target="_blank" class="wa-link">WhatsApp 全球商务对接</a >
+        <p class="domain-text">官方专属域名：vexorion.ma</p >
     </div>
 
-    <script>
-function showLang(lang){document.querySelectorAll('[id^="content-"]').forEach(e=>e.style.display="none");document.getElementById("content-"+lang).style.display="block";}
-    </script>
+<script>
+//三语言切换
+function changeLang(l){
+    ["zh","en","fr"].forEach(x=>{
+        document.getElementById("h1-"+x).style.display="none";
+        document.getElementById("slogan-"+x).style.display="none";
+        document.getElementById("pt-"+x).style.display="none";
+    });
+    document.getElementById("h1-"+l).style.display="block";
+    document.getElementById("slogan-"+l).style.display="block";
+    document.getElementById("pt-"+l).style.display="block";
+}
+
+//产品数据 可自行修改价格、图文、介绍
+const proData={
+mask:{name:"医用三层防护口罩",price:"统一价：**美元/只",desc:"三层熔喷布过滤，医用级别防护，舒适透气，跨境外贸主力爆款。",img:"mask.jpg"},
+glove:{name:"无粉丁腈检查手套",price:"统一价：**美元/只",desc:"食品医疗双认证，弹性贴合，耐拉伸耐穿刺，多国医疗机构通用。",img:"glove.jpg"},
+wipe:{name:"医用消毒清洁湿巾",price:"统一价：**美元/包",desc:"75%标准消毒配比，便携家庭商用两用，消杀抑菌效果稳定。",img:"wipe.jpg"},
+mat:{name:"医用一次性护理垫单",price:"统一价：**美元/片",desc:"防水防渗加厚款，医美、诊所、护理机构专用，干净卫生易丢弃。",img:"mat.jpg"}
+};
+
+function switchProduct(){
+    let val=document.querySelector(".pro-select").value;
+    let d=proData[val];
+    document.getElementById("proName").innerText=d.name;
+    document.getElementById("proPrice").innerText=d.price;
+    document.getElementById("proDesc").innerText=d.desc;
+    document.getElementById("proImg").src=d.img;
+}
+</script>
 </body>
 </html>
