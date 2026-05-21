@@ -6,8 +6,30 @@
  <title>VEXORION Official</title>
  <style>
  *{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif;}
- body{width:100%;min-height:100vh;margin:0 auto;padding:30px;background:linear-gradient(-45deg,#e8f0fc,#dbeafe,#eff6ff,#f0f4ff);background-size:400% 400%;animation:bgMove 12s ease infinite;color:#222;max-width:1100px;}
- @keyframes bgMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+ body{
+     width:100%;
+     min-height:100vh;
+     margin:0 auto;
+     padding:30px;
+     /* 核心动态背景 */
+     background: linear-gradient(-45deg, #e0f2fe, #dbeafe, #e0e7ff, #f0f9ff);
+     background-size: 400% 400%;
+     animation: gradientFlow 15s ease infinite;
+     color:#222;
+     max-width:1100px;
+ }
+ /* 动画关键帧：控制背景位置移动 */
+ @keyframes gradientFlow {
+     0% {
+         background-position: 0% 50%;
+     }
+     50% {
+         background-position: 100% 50%;
+     }
+     100% {
+         background-position: 0% 50%;
+     }
+ }
  .lang-bar{text-align:right;margin-bottom:40px;}
  .lang-bar a{margin-left:20px;text-decoration:none;color:#08306b;font-weight:500;font-size:16px;cursor:pointer;}
  .logo-box{text-align:center;margin:50px 0;}
@@ -26,8 +48,8 @@
  <a onclick="switchLang('zh')">中文</a >
  </div>
  <div class="logo-box">
- <img src="shield-logo.png" alt="LOGO">
- <img src="vexorion-logo.png" alt="VEXORION">
+ < img src="shield-logo.png" alt="LOGO">
+ < img src="vexorion-logo.png" alt="VEXORION">
  </div>
  <h1 id="txtZh" class="main-h1">VEXORION 全球医疗防护品牌</h1>
  <h1 id="txtEn" class="main-h1" style="display:none;">VEXORION Global Medical Protection</h1>
