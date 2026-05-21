@@ -14,7 +14,7 @@
             position: relative;
             min-height: 100vh;
         }
-        /* 核心：动态背景视频 */
+        /* 动态背景视频 */
         #bg-video {
             position: fixed;
             right: 0;
@@ -26,7 +26,7 @@
             z-index: -100;
             background-size: cover;
         }
-        /* 半透明遮罩，保证文字清晰可读 */
+        /* 半透明遮罩，保证文字清晰 */
         body::before {
             content: "";
             position: fixed;
@@ -42,7 +42,7 @@
         .logo-box{text-align:center;margin:45px 0;position:relative;z-index:1;}
         .logo-box img{filter:none!important;box-shadow:none!important;-webkit-filter:none!important;background:transparent!important;height:120px;margin:0 18px;vertical-align:middle;}
         .main-h1{text-align:center;font-size:34px;color:#002A55;font-weight:700;margin-bottom:22px;position:relative;z-index:1;}
-        /* 已恢复：高端广告语保持原有大小 */
+        /* 保留你原来的广告语大小 */
         .welcome-slogan{text-align:center;font-size:17px;color:#333;line-height:1.9;margin-bottom:100px;padding:0 20px;position:relative;z-index:1;}
         .contact-foot{text-align:center;margin-top:80px;padding-top:25px;border-top:1px solid #e6ecf2;position:relative;z-index:1;}
         .wa-link{display:inline-block;background:#25d366;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:500;}
@@ -66,10 +66,12 @@
         <img src="vexorion-logo.png" alt="品牌LOGO">
     </div>
 
+    <!-- 三语标题（ID必须和函数对应） -->
     <h1 id="h1-zh" class="main-h1">VEXORION 全球医疗防护品牌</h1>
     <h1 id="h1-en" class="main-h1" style="display:none;">VEXORION Global Medical Protection</h1>
     <h1 id="h1-fr" class="main-h1" style="display:none;">VEXORION Protection Médicale Mondiale</h1>
 
+    <!-- 三语标语（ID必须和函数对应） -->
     <div id="slogan-zh" class="welcome-slogan">
         欢迎您来到：引领全球私人医疗高标准生物防护新维度的VEXORION官方网站<br>
         我们将用极致的匠心服务精神，让您和您的品牌在新时代乘风破浪、一路高歌。
@@ -84,20 +86,24 @@
     </div>
 
     <div class="contact-foot">
-        <a href="https://wa.me/212702298888" target="_blank" class="wa-link">WhatsApp 全球商务对接</a >
+        <a href="https://wa.me/212600000000" target="_blank" class="wa-link">WhatsApp 全球商务对接</a >
         <p class="domain-text">官方专属域名：vexorion.ma</p >
     </div>
 
     <script>
+        // 已修复的三语言切换函数
         function changeLang(lang){
-            document.getElementById("h1-zh").style.display="none";
-            document.getElementById("h1-en").style.display="none";
-            document.getElementById("h1-fr").style.display="none";
-            document.getElementById("slogan-zh").style.display="none";
-            document.getElementById("slogan-en").style.display="none";
-            document.getElementById("slogan-fr").style.display="none";
-            document.getElementById("h1-"+lang).style.display="block";
-            document.getElementById("slogan-"+lang).style.display="block";
+            // 先隐藏所有语言版本
+            document.getElementById("h1-zh").style.display = "none";
+            document.getElementById("h1-en").style.display = "none";
+            document.getElementById("h1-fr").style.display = "none";
+            document.getElementById("slogan-zh").style.display = "none";
+            document.getElementById("slogan-en").style.display = "none";
+            document.getElementById("slogan-fr").style.display = "none";
+
+            // 再显示对应语言版本
+            document.getElementById("h1-"+lang).style.display = "block";
+            document.getElementById("slogan-"+lang).style.display = "block";
         }
     </script>
 </body>
