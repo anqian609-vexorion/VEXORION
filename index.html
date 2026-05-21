@@ -9,11 +9,15 @@
 .video-bg{position:fixed;top:0;left:0;width:100vw;height:100vh;object-fit:cover;z-index:-2;}
 .mask{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.1);z-index:-1;}
 body{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 30px;color:#222;min-height:100vh;}
+/* --- 修复导航布局：强制一行均匀分布 --- */
 .top-nav{display:flex;align-items:center;justify-content:space-between;padding:25px 0;border-bottom:1px solid #e5e7eb;margin-bottom:50px;}
-.nav-logo{font-size:24px;font-weight:700;color:#08306b;}
-.nav-menu a{text-decoration:none;color:#333;font-size:16px;margin:0 15px;font-weight:500;}
+.nav-left{display:flex;align-items:center;gap:30px;} /* 品牌名和菜单之间留间距 */
+.nav-logo{font-size:24px;font-weight:700;color:#08306b;white-space:nowrap;}
+.nav-menu{display:flex;align-items:center;gap:25px; /* 菜单按钮之间的间距 */ flex-wrap:nowrap; /* 禁止换行 */}
+.nav-menu a{text-decoration:none;color:#333;font-size:16px;font-weight:500;white-space:nowrap; /* 禁止文字换行 */}
 .nav-menu a:hover{color:#08306b;}
-.lang-bar a{margin-left:20px;text-decoration:none;color:#08306b;font-weight:500;font-size:16px;cursor:pointer;}
+.lang-bar{display:flex;align-items:center;gap:20px; /* 语言按钮之间的间距 */}
+.lang-bar a{text-decoration:none;color:#08306b;font-weight:500;font-size:16px;cursor:pointer;white-space:nowrap;}
 .brand-main{
     font-family:'BANKGOTHIC MD BT',Arial Black,sans-serif;
     font-size:52px;
@@ -181,7 +185,6 @@ function showPage(id){
     document.querySelectorAll(".page-box").forEach(item=>item.style.display="none");
     document.getElementById(id).style.display="block";
 }
-//全局一键切换 所有位置文字全部同步切换
 function setLang(lang){
     document.querySelectorAll(".zh,.en,.fr").forEach(el=>el.style.display="none");
     document.querySelectorAll("."+lang).forEach(el=>el.style.display="block");
