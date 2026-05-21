@@ -7,7 +7,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif;}
 .video-bg{position:fixed;top:0;left:0;width:100vw;height:100vh;object-fit:cover;z-index:-2;}
-.mask{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.2);z-index:-1;}
+.mask{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.1);z-index:-1;}
 body{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 30px;color:#222;min-height:100vh;}
 .top-nav{display:flex;align-items:center;justify-content:space-between;padding:25px 0;border-bottom:1px solid #e5e7eb;margin-bottom:50px;}
 .nav-logo{font-size:24px;font-weight:700;color:#08306b;}
@@ -42,7 +42,6 @@ body{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 30px;c
 .admin-box{display:none;background:#fff;padding:30px;border-radius:12px;margin:20px 0;box-shadow:0 0 10px #ccc;}
 .admin-box textarea{width:100%;height:100px;padding:10px;margin:8px 0;border:1px solid #ddd;border-radius:6px;}
 .admin-btn{padding:8px 20px;background:#08306b;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-right:10px;}
-/* 所有语言文本默认隐藏 */
 .zh,.en,.fr{display:none;}
 </style>
 </head>
@@ -56,11 +55,25 @@ body{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 30px;c
     <div class="nav-left">
         <span class="nav-logo">VEXORION</span>
         <span class="nav-menu">
-            <a onclick="showPage('indexPage')">首页</a >
-            <a onclick="showPage('aboutPage')">公司简介</a >
-            <a onclick="showPage('productPage')">产品发布</a >
-            <a onclick="showPage('tracePage')">产品溯源</a >
-            <a onclick="showPage('contactPage')">联系我们</a >
+            <a onclick="showPage('indexPage')" class="zh">首页</a >
+            <a onclick="showPage('indexPage')" class="en">Home</a >
+            <a onclick="showPage('indexPage')" class="fr">Accueil</a >
+
+            <a onclick="showPage('aboutPage')" class="zh">公司简介</a >
+            <a onclick="showPage('aboutPage')" class="en">About Us</a >
+            <a onclick="showPage('aboutPage')" class="fr">À Propos</a >
+
+            <a onclick="showPage('productPage')" class="zh">产品发布</a >
+            <a onclick="showPage('productPage')" class="en">Products</a >
+            <a onclick="showPage('productPage')" class="fr">Produits</a >
+
+            <a onclick="showPage('tracePage')" class="zh">产品溯源</a >
+            <a onclick="showPage('tracePage')" class="en">Traceability</a >
+            <a onclick="showPage('tracePage')" class="fr">Traçabilité</a >
+
+            <a onclick="showPage('contactPage')" class="zh">联系我们</a >
+            <a onclick="showPage('contactPage')" class="en">Contact</a >
+            <a onclick="showPage('contactPage')" class="fr">Contactez-nous</a >
         </span>
     </div>
     <div class="lang-bar">
@@ -73,61 +86,80 @@ body{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 30px;c
 <!-- 首页 -->
 <div id="indexPage" class="page-box">
     <div class="brand-main">VEXORION</div>
-    <div class="brand-sub">全球医疗防护品牌</div>
-    <div class="welcome-text zh">欢迎您来到：引领全球私人医疗高标准生物防护新维度--VEXORION官方网站<br>我们将用极致的匠心服务精神，让您和您的品牌在新时代乘风破浪、一路高歌。</div>
-    <div class="welcome-text en">Welcome to the official website of VEXORION, leading the new dimension of high-standard private medical biological protection worldwide.<br>We serve with ingenuity to help you and your brand forge ahead in the new era.</div>
-    <div class="welcome-text fr">Bienvenue sur le site officiel VEXORION, pionnier de la protection biologique médicale haut de gamme mondiale.<br>Nous vous accompagnons avec dévouement pour prospérer dans la nouvelle ère.</div>
+    <div class="brand-sub zh">全球医疗防护品牌</div>
+    <div class="brand-sub en">Global Medical Protection Brand</div>
+    <div class="brand-sub fr">Marque Mondiale De Protection Médicale</div>
+
+    <div class="welcome-text zh">欢迎您来到：引领全球私人医疗高标准生物防护新维度-VEXORION官方网站<br>我们将用极致的匠心服务精神，让您和您的品牌在新时代乘风破浪、一路高歌。</div>
+    <div class="welcome-text en">Welcome to VEXORION official website, leading high-standard medical protection solutions worldwide.</div>
+    <div class="welcome-text fr">Bienvenue sur le site officiel VEXORION, leader des solutions de protection médicale.</div>
 </div>
 
 <!-- 公司简介 -->
 <div id="aboutPage" class="page-box">
     <div class="brand-main">VEXORION</div>
-    <div class="brand-sub">全球医疗防护品牌</div>
+    <div class="brand-sub zh">全球医疗防护品牌</div>
+    <div class="brand-sub en">Global Medical Protection Brand</div>
+    <div class="brand-sub fr">Marque Mondiale De Protection Médicale</div>
+
     <h2 class="page-tit zh">公司简介</h2>
     <h2 class="page-tit en">Company Profile</h2>
     <h2 class="page-tit fr">Présentation De L'entreprise</h2>
     <p class="page-txt zh" id="aboutZh">此处填写企业实力、经营范围、海外布局等内容</p >
-    <p class="page-txt en" id="aboutEn">Fill in enterprise strength, business scope and overseas layout</p >
-    <p class="page-txt fr" id="aboutFr">Remplissez les informations sur l'entreprise et le champ d'activité</p >
+    <p class="page-txt en" id="aboutEn">Enterprise strength, business scope and overseas layout introduction</p >
+    <p class="page-txt fr" id="aboutFr">Présentation de la force et du champ d'activité de l'entreprise</p >
 </div>
 
 <!-- 产品发布 -->
 <div id="productPage" class="page-box">
     <div class="brand-main">VEXORION</div>
-    <div class="brand-sub">全球医疗防护品牌</div>
+    <div class="brand-sub zh">全球医疗防护品牌</div>
+    <div class="brand-sub en">Global Medical Protection Brand</div>
+    <div class="brand-sub fr">Marque Mondiale De Protection Médicale</div>
+
     <h2 class="page-tit zh">产品发布专区</h2>
-    <h2 class="page-tit en">Product Release</h2>
-    <h2 class="page-tit fr">Lancement Des Produits</h2>
+    <h2 class="page-tit en">Product Release Area</h2>
+    <h2 class="page-tit fr">Espace De Lancement Produits</h2>
     <p class="page-txt zh" id="proZh">每日上新医疗耗材、新品介绍、规格参数均可填写</p >
-    <p class="page-txt en" id="proEn">Update medical supplies, new products and specifications daily</p >
-    <p class="page-txt fr" id="proFr">Mettez à jour les fournitures médicales et nouveaux produits</p >
+    <p class="page-txt en" id="proEn">Daily update medical supplies, new products and specifications</p >
+    <p class="page-txt fr" id="proFr">Mise à jour quotidienne des fournitures et nouveaux produits médicaux</p >
 </div>
 
 <!-- 产品溯源 -->
 <div id="tracePage" class="page-box">
     <div class="brand-main">VEXORION</div>
-    <div class="brand-sub">全球医疗防护品牌</div>
+    <div class="brand-sub zh">全球医疗防护品牌</div>
+    <div class="brand-sub en">Global Medical Protection Brand</div>
+    <div class="brand-sub fr">Marque Mondiale De Protection Médicale</div>
+
     <h2 class="page-tit zh">产品溯源体系</h2>
-    <h2 class="page-tit en">Product Traceability</h2>
-    <h2 class="page-tit fr">Traçabilité Des Produits</h2>
+    <h2 class="page-tit en">Product Traceability System</h2>
+    <h2 class="page-tit fr">Système De Traçabilité Produits</h2>
     <div class="shield-icon">
         <img src="shield-logo.png" alt="防护盾图标">
     </div>
     <p class="page-txt zh" id="traceZh">填写原料采购、生产流程、质检标准、跨境溯源信息</p >
-    <p class="page-txt en" id="traceEn">Fill in procurement, production, quality inspection and traceability info</p >
-    <p class="page-txt fr" id="traceFr">Remplissez les informations sur la production et la traçabilité</p >
+    <p class="page-txt en" id="traceEn">Raw material procurement, production process and quality inspection standard</p >
+    <p class="page-txt fr" id="traceFr">Approvisionnement matières premières, processus de production et contrôle qualité</p >
 </div>
 
 <!-- 联系我们 -->
 <div id="contactPage" class="page-box">
     <div class="brand-main">VEXORION</div>
-    <div class="brand-sub">全球医疗防护品牌</div>
+    <div class="brand-sub zh">全球医疗防护品牌</div>
+    <div class="brand-sub en">Global Medical Protection Brand</div>
+    <div class="brand-sub fr">Marque Mondiale De Protection Médicale</div>
+
     <h2 class="page-tit zh">联系我们</h2>
     <h2 class="page-tit en">Contact Us</h2>
     <h2 class="page-tit fr">Contactez-Nous</h2>
     <div class="contact-foot">
-        <a href="http://wa.me/212702298888" target="_blank" class="wa-link">WhatsApp 全球商务对接</a >
-        <p class="domain-text">官方专属域名：vexorion.ma</p >
+        <a href="http://wa.me/212702298888" target="_blank" class="wa-link">
+            <span class="zh">WhatsApp 全球商务对接</span>
+            <span class="en">WhatsApp Global Business Contact</span>
+            <span class="fr">Contact Commercial Global WhatsApp</span>
+        </a >
+        <p class="domain-text">vexorion.ma</p >
     </div>
 </div>
 
@@ -145,17 +177,15 @@ body{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 30px;c
 </div>
 
 <script>
-//栏目切换
 function showPage(id){
     document.querySelectorAll(".page-box").forEach(item=>item.style.display="none");
     document.getElementById(id).style.display="block";
 }
-//全局统一语言切换 所有页面全部生效
+//全局一键切换 所有位置文字全部同步切换
 function setLang(lang){
     document.querySelectorAll(".zh,.en,.fr").forEach(el=>el.style.display="none");
     document.querySelectorAll("."+lang).forEach(el=>el.style.display="block");
 }
-//后台保存中文内容
 function saveData(){
 document.getElementById("aboutZh").innerText=document.getElementById("editAboutZh").value;
 document.getElementById("proZh").innerText=document.getElementById("editProZh").value;
@@ -175,12 +205,10 @@ function closeAdmin(){
 document.getElementById("adminPanel").style.display="none";
 }
 if(location.search=="?admin")openAdmin();
-//页面加载读取本地内容
 window.onload=function(){
 if(localStorage.getItem("abz"))document.getElementById("aboutZh").innerText=localStorage.getItem("abz");
 if(localStorage.getItem("proz"))document.getElementById("proZh").innerText=localStorage.getItem("proz");
 if(localStorage.getItem("trz"))document.getElementById("traceZh").innerText=localStorage.getItem("trz");
-//默认中文
 setLang('zh');
 }
 </script>
