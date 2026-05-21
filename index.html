@@ -7,14 +7,13 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif;}
 .video-bg{position:fixed;top:0;left:0;width:100vw;height:100vh;object-fit:cover;z-index:-2;}
-.mask{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.1);z-index:-1;}
+.mask{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.2);z-index:-1;}
 body{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 30px;color:#222;min-height:100vh;}
 .top-nav{display:flex;align-items:center;justify-content:space-between;padding:25px 0;border-bottom:1px solid #e5e7eb;margin-bottom:50px;}
 .nav-logo{font-size:24px;font-weight:700;color:#08306b;}
 .nav-menu a{text-decoration:none;color:#333;font-size:16px;margin:0 15px;font-weight:500;}
 .nav-menu a:hover{color:#08306b;}
 .lang-bar a{margin-left:20px;text-decoration:none;color:#08306b;font-weight:500;font-size:16px;cursor:pointer;}
-/* 主商标大写字母样式 */
 .brand-main{
     font-family:'BANKGOTHIC MD BT',Arial Black,sans-serif;
     font-size:52px;
@@ -24,7 +23,6 @@ body{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 30px;c
     margin:30px 0 5px;
     line-height:1;
 }
-/* 副标小字样式 */
 .brand-sub{
     font-size:20px;
     text-align:center;
@@ -32,6 +30,8 @@ body{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 30px;c
     margin-bottom:40px;
 }
 .welcome-text{text-align:center;font-size:17px;color:#333;line-height:1.9;padding:0 40px;}
+.page-tit{text-align:center;color:#08306b;margin-bottom:30px;}
+.page-txt{line-height:2.2;font-size:16px;text-align:center;}
 .contact-foot{text-align:center;margin-top:80px;padding-top:30px;border-top:1px solid #d8e2dc;}
 .wa-link{display:inline-block;background:#25d366;color:#fff;padding:13px 36px;border-radius:8px;text-decoration:none;font-size:16px;font-weight:500;}
 .domain-text{margin-top:20px;color:#555;font-size:15px;}
@@ -42,6 +42,8 @@ body{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 30px;c
 .admin-box{display:none;background:#fff;padding:30px;border-radius:12px;margin:20px 0;box-shadow:0 0 10px #ccc;}
 .admin-box textarea{width:100%;height:100px;padding:10px;margin:8px 0;border:1px solid #ddd;border-radius:6px;}
 .admin-btn{padding:8px 20px;background:#08306b;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-right:10px;}
+/* 所有语言文本默认隐藏 */
+.zh,.en,.fr{display:none;}
 </style>
 </head>
 <body>
@@ -72,43 +74,57 @@ body{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 30px;c
 <div id="indexPage" class="page-box">
     <div class="brand-main">VEXORION</div>
     <div class="brand-sub">全球医疗防护品牌</div>
-    <div class="welcome-text zh-desc">欢迎您来到：引领全球私人医疗高标准生物防护新维度-VEXORION官方网站<br>我们将用极致的匠心服务精神，让您和您的品牌在新时代乘风破浪、一路高歌。</div>
-    <div class="welcome-text en-desc" style="display:none;">Welcome to the official website of VEXORION, leading the new dimension of high-standard private medical biological protection worldwide.<br>We serve with ingenuity to help you and your brand forge ahead in the new era.</div>
-    <div class="welcome-text fr-desc" style="display:none;">Bienvenue sur le site officiel VEXORION, pionnier de la protection biologique médicale haut de gamme mondiale.<br>Nous vous accompagnons avec dévouement pour prospérer dans la nouvelle ère.</div>
+    <div class="welcome-text zh">欢迎您来到：引领全球私人医疗高标准生物防护新维度--VEXORION官方网站<br>我们将用极致的匠心服务精神，让您和您的品牌在新时代乘风破浪、一路高歌。</div>
+    <div class="welcome-text en">Welcome to the official website of VEXORION, leading the new dimension of high-standard private medical biological protection worldwide.<br>We serve with ingenuity to help you and your brand forge ahead in the new era.</div>
+    <div class="welcome-text fr">Bienvenue sur le site officiel VEXORION, pionnier de la protection biologique médicale haut de gamme mondiale.<br>Nous vous accompagnons avec dévouement pour prospérer dans la nouvelle ère.</div>
 </div>
 
 <!-- 公司简介 -->
 <div id="aboutPage" class="page-box">
     <div class="brand-main">VEXORION</div>
     <div class="brand-sub">全球医疗防护品牌</div>
-    <h2 style="text-align:center;color:#08306b;margin-bottom:30px;">公司简介</h2>
-    <p id="aboutTxt" style="line-height:2.2;font-size:16px;text-align:center;">此处填写企业实力、经营范围、海外布局等内容</p >
+    <h2 class="page-tit zh">公司简介</h2>
+    <h2 class="page-tit en">Company Profile</h2>
+    <h2 class="page-tit fr">Présentation De L'entreprise</h2>
+    <p class="page-txt zh" id="aboutZh">此处填写企业实力、经营范围、海外布局等内容</p >
+    <p class="page-txt en" id="aboutEn">Fill in enterprise strength, business scope and overseas layout</p >
+    <p class="page-txt fr" id="aboutFr">Remplissez les informations sur l'entreprise et le champ d'activité</p >
 </div>
 
 <!-- 产品发布 -->
 <div id="productPage" class="page-box">
     <div class="brand-main">VEXORION</div>
     <div class="brand-sub">全球医疗防护品牌</div>
-    <h2 style="text-align:center;color:#08306b;margin-bottom:30px;">产品发布专区</h2>
-    <p id="productTxt" style="line-height:2.2;font-size:16px;text-align:center;">每日上新医疗耗材、新品介绍、规格参数均可填写</p >
+    <h2 class="page-tit zh">产品发布专区</h2>
+    <h2 class="page-tit en">Product Release</h2>
+    <h2 class="page-tit fr">Lancement Des Produits</h2>
+    <p class="page-txt zh" id="proZh">每日上新医疗耗材、新品介绍、规格参数均可填写</p >
+    <p class="page-txt en" id="proEn">Update medical supplies, new products and specifications daily</p >
+    <p class="page-txt fr" id="proFr">Mettez à jour les fournitures médicales et nouveaux produits</p >
 </div>
 
 <!-- 产品溯源 -->
 <div id="tracePage" class="page-box">
     <div class="brand-main">VEXORION</div>
     <div class="brand-sub">全球医疗防护品牌</div>
-    <h2 style="text-align:center;color:#08306b;margin-bottom:20px;">产品溯源体系</h2>
+    <h2 class="page-tit zh">产品溯源体系</h2>
+    <h2 class="page-tit en">Product Traceability</h2>
+    <h2 class="page-tit fr">Traçabilité Des Produits</h2>
     <div class="shield-icon">
         <img src="shield-logo.png" alt="防护盾图标">
     </div>
-    <p id="traceTxt" style="line-height:2.2;font-size:16px;text-align:center;">填写原料采购、生产流程、质检标准、跨境溯源信息</p >
+    <p class="page-txt zh" id="traceZh">填写原料采购、生产流程、质检标准、跨境溯源信息</p >
+    <p class="page-txt en" id="traceEn">Fill in procurement, production, quality inspection and traceability info</p >
+    <p class="page-txt fr" id="traceFr">Remplissez les informations sur la production et la traçabilité</p >
 </div>
 
 <!-- 联系我们 -->
 <div id="contactPage" class="page-box">
     <div class="brand-main">VEXORION</div>
     <div class="brand-sub">全球医疗防护品牌</div>
-    <h2 style="text-align:center;color:#08306b;margin-bottom:30px;">联系我们</h2>
+    <h2 class="page-tit zh">联系我们</h2>
+    <h2 class="page-tit en">Contact Us</h2>
+    <h2 class="page-tit fr">Contactez-Nous</h2>
     <div class="contact-foot">
         <a href="http://wa.me/212702298888" target="_blank" class="wa-link">WhatsApp 全球商务对接</a >
         <p class="domain-text">官方专属域名：vexorion.ma</p >
@@ -118,58 +134,53 @@ body{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 30px;c
 <!-- 简易后台 -->
 <div class="admin-box" id="adminPanel">
     <h3>📝 网站内容简易后台</h3>
-    <p>公司简介内容：</p >
-    <textarea id="editAbout"></textarea>
-    <p>产品发布内容：</p >
-    <textarea id="editProduct"></textarea>
-    <p>产品溯源内容：</p >
-    <textarea id="editTrace"></textarea>
+    <p>公司简介中文：</p >
+    <textarea id="editAboutZh"></textarea>
+    <p>产品发布中文：</p >
+    <textarea id="editProZh"></textarea>
+    <p>产品溯源中文：</p >
+    <textarea id="editTraceZh"></textarea>
     <button class="admin-btn" onclick="saveData()">一键保存修改</button>
     <button class="admin-btn" onclick="closeAdmin()">关闭后台</button>
 </div>
 
 <script>
+//栏目切换
 function showPage(id){
-    document.querySelectorAll(".page-box").forEach(item=>{
-        item.style.display="none";
-    })
+    document.querySelectorAll(".page-box").forEach(item=>item.style.display="none");
     document.getElementById(id).style.display="block";
 }
+//全局统一语言切换 所有页面全部生效
 function setLang(lang){
-    document.querySelectorAll(".zh-desc,.en-desc,.fr-desc").forEach(el=>{
-        el.style.display="none";
-    })
-    document.querySelector("."+lang+"-desc").style.display="block";
+    document.querySelectorAll(".zh,.en,.fr").forEach(el=>el.style.display="none");
+    document.querySelectorAll("."+lang).forEach(el=>el.style.display="block");
 }
+//后台保存中文内容
 function saveData(){
-let ab=document.getElementById("editAbout").value;
-let pd=document.getElementById("editProduct").value;
-let tc=document.getElementById("editTrace").value;
-localStorage.setItem("siteAbout",ab);
-localStorage.setItem("siteProduct",pd);
-localStorage.setItem("siteTrace",tc);
-document.getElementById("aboutTxt").innerText=ab;
-document.getElementById("productTxt").innerText=pd;
-document.getElementById("traceTxt").innerText=tc;
-alert("内容保存成功");
+document.getElementById("aboutZh").innerText=document.getElementById("editAboutZh").value;
+document.getElementById("proZh").innerText=document.getElementById("editProZh").value;
+document.getElementById("traceZh").innerText=document.getElementById("editTraceZh").value;
+localStorage.setItem("abz",document.getElementById("editAboutZh").value);
+localStorage.setItem("proz",document.getElementById("editProZh").value);
+localStorage.setItem("trz",document.getElementById("editTraceZh").value);
+alert("内容保存成功！");
 }
 function openAdmin(){
 document.getElementById("adminPanel").style.display="block";
-document.getElementById("editAbout").value=localStorage.getItem("siteAbout")||"";
-document.getElementById("editProduct").value=localStorage.getItem("siteProduct")||"";
-document.getElementById("editTrace").value=localStorage.getItem("siteTrace")||"";
+document.getElementById("editAboutZh").value=localStorage.getItem("abz")||"";
+document.getElementById("editProZh").value=localStorage.getItem("proz")||"";
+document.getElementById("editTraceZh").value=localStorage.getItem("trz")||"";
 }
 function closeAdmin(){
 document.getElementById("adminPanel").style.display="none";
 }
 if(location.search=="?admin")openAdmin();
+//页面加载读取本地内容
 window.onload=function(){
-let s1=localStorage.getItem("siteAbout");
-let s2=localStorage.getItem("siteProduct");
-let s3=localStorage.getItem("siteTrace");
-if(s1)document.getElementById("aboutTxt").innerText=s1;
-if(s2)document.getElementById("productTxt").innerText=s2;
-if(s3)document.getElementById("traceTxt").innerText=s3;
+if(localStorage.getItem("abz"))document.getElementById("aboutZh").innerText=localStorage.getItem("abz");
+if(localStorage.getItem("proz"))document.getElementById("proZh").innerText=localStorage.getItem("proz");
+if(localStorage.getItem("trz"))document.getElementById("traceZh").innerText=localStorage.getItem("trz");
+//默认中文
 setLang('zh');
 }
 </script>
