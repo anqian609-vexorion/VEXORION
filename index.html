@@ -6,25 +6,55 @@
     <title>VEXORION Official</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",sans-serif;}
-        body{background:#f5f7fa;color:#222;max-width:1100px;margin:0 auto;padding:25px;}
-        /*语言切换*/
-        .lang-bar{text-align:right;margin-bottom:35px;}
+        body{
+            color:#222;
+            max-width:1100px;
+            margin:0 auto;
+            padding:25px;
+            position: relative;
+            min-height: 100vh;
+        }
+        /* 核心：动态背景视频 */
+        #bg-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -100;
+            background-size: cover;
+        }
+        /* 半透明遮罩，保证文字清晰可读 */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.85);
+            z-index: -1;
+        }
+        .lang-bar{text-align:right;margin-bottom:35px;position:relative;z-index:1;}
         .lang-bar a{margin:0 10px;text-decoration:none;color:#002A55;font-weight:500;}
-        /*LOGO彻底去阴影 双图并排同大小*/
-        .logo-box{text-align:center;margin:45px 0;}
+        .logo-box{text-align:center;margin:45px 0;position:relative;z-index:1;}
         .logo-box img{filter:none!important;box-shadow:none!important;-webkit-filter:none!important;background:transparent!important;height:120px;margin:0 18px;vertical-align:middle;}
-        /*标题全部居中*/
-        .main-h1{text-align:center;font-size:34px;color:#002A55;font-weight:700;margin-bottom:22px;}
-        /*居中标准欢迎标语*/
-        .welcome-slogan{text-align:center;font-size:17px;color:#333;line-height:1.9;margin-bottom:100px;padding:0 20px;}
-        /*简约科技风整体排版*/
-        .contact-foot{text-align:center;margin-top:80px;padding-top:25px;border-top:1px solid #e6ecf2;}
+        .main-h1{text-align:center;font-size:34px;color:#002A55;font-weight:700;margin-bottom:22px;position:relative;z-index:1;}
+        /* 已恢复：高端广告语保持原有大小 */
+        .welcome-slogan{text-align:center;font-size:17px;color:#333;line-height:1.9;margin-bottom:100px;padding:0 20px;position:relative;z-index:1;}
+        .contact-foot{text-align:center;margin-top:80px;padding-top:25px;border-top:1px solid #e6ecf2;position:relative;z-index:1;}
         .wa-link{display:inline-block;background:#25d366;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:500;}
-        /*正确域名展示*/
         .domain-text{margin-top:15px;color:#666;font-size:15px;}
     </style>
 </head>
 <body>
+    <!-- 动态背景视频 -->
+    <video autoplay muted loop id="bg-video">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-blue-light-flowing-2317-large.mp4" type="video/mp4">
+    </video>
+
     <div class="lang-bar">
         <a href=" " onclick="changeLang('fr')">Français</a >
         <a href="#" onclick="changeLang('en')">English</a >
@@ -32,27 +62,25 @@
     </div>
 
     <div class="logo-box">
-<img src="shield-logo.png" alt="盾形LOGO">
-<img src="vexorion-logo.png" alt="品牌LOGO">
+        <img src="shield-logo.png" alt="盾形LOGO">
+        <img src="vexorion-logo.png" alt="品牌LOGO">
     </div>
 
-    <!--三语标题 注意这里id和语言对应-->
     <h1 id="h1-zh" class="main-h1">VEXORION 全球医疗防护品牌</h1>
     <h1 id="h1-en" class="main-h1" style="display:none;">VEXORION Global Medical Protection</h1>
     <h1 id="h1-fr" class="main-h1" style="display:none;">VEXORION Protection Médicale Mondiale</h1>
 
-    <!--三语标语 注意这里id和语言对应-->
     <div id="slogan-zh" class="welcome-slogan">
-欢迎您来到：引领全球私人医疗高标准生物防护新维度的VEXORION官方网站<br>
-我们将用极致的匠心服务精神，让您和您的品牌在新时代乘风破浪、一路高歌。
+        欢迎您来到：引领全球私人医疗高标准生物防护新维度的VEXORION官方网站<br>
+        我们将用极致的匠心服务精神，让您和您的品牌在新时代乘风破浪、一路高歌。
     </div>
     <div id="slogan-en" class="welcome-slogan" style="display:none;">
-Welcome to the official website of VEXORION, leading the new dimension of high-standard private medical biological protection worldwide.<br>
-We serve with ingenuity to help you and your brand forge ahead in the new era.
+        Welcome to the official website of VEXORION, leading the new dimension of high-standard private medical biological protection worldwide.<br>
+        We serve with ingenuity to help you and your brand forge ahead in the new era.
     </div>
     <div id="slogan-fr" class="welcome-slogan" style="display:none;">
-Bienvenue sur le site officiel VEXORION, pionnier de la protection biologique médicale haut de gamme mondiale.<br>
-Nous vous accompagnons avec dévouement pour prospérer dans la nouvelle ère.
+        Bienvenue sur le site officiel VEXORION, pionnier de la protection biologique médicale haut de gamme mondiale.<br>
+        Nous vous accompagnons avec dévouement pour prospérer dans la nouvelle ère.
     </div>
 
     <div class="contact-foot">
@@ -60,21 +88,17 @@ Nous vous accompagnons avec dévouement pour prospérer dans la nouvelle ère.
         <p class="domain-text">官方专属域名：vexorion.ma</p >
     </div>
 
-<script>
-// 修复后的三语言切换函数
-function changeLang(lang){
-    // 先隐藏所有语言版本
-    document.getElementById("h1-zh").style.display="none";
-    document.getElementById("h1-en").style.display="none";
-    document.getElementById("h1-fr").style.display="none";
-    document.getElementById("slogan-zh").style.display="none";
-    document.getElementById("slogan-en").style.display="none";
-    document.getElementById("slogan-fr").style.display="none";
-
-    // 再显示对应语言版本
-    document.getElementById("h1-"+lang).style.display="block";
-    document.getElementById("slogan-"+lang).style.display="block";
-}
-</script>
+    <script>
+        function changeLang(lang){
+            document.getElementById("h1-zh").style.display="none";
+            document.getElementById("h1-en").style.display="none";
+            document.getElementById("h1-fr").style.display="none";
+            document.getElementById("slogan-zh").style.display="none";
+            document.getElementById("slogan-en").style.display="none";
+            document.getElementById("slogan-fr").style.display="none";
+            document.getElementById("h1-"+lang).style.display="block";
+            document.getElementById("slogan-"+lang).style.display="block";
+        }
+    </script>
 </body>
 </html>
