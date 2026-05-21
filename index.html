@@ -2,109 +2,82 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VEXORION Official</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",sans-serif;}
         body{
+            background: linear-gradient(120deg,#edf2fb,#f8fafc);
             color:#222;
             max-width:1100px;
             margin:0 auto;
-            padding:25px;
-            position: relative;
-            min-height: 100vh;
+            padding:30px;
+            min-height:100vh;
         }
-        /* 动态背景视频 */
-        #bg-video {
-            position: fixed;
-            right: 0;
-            bottom: 0;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -100;
-            background-size: cover;
-        }
-        /* 半透明遮罩，保证文字清晰 */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.85);
-            z-index: -1;
-        }
-        .lang-bar{text-align:right;margin-bottom:35px;position:relative;z-index:1;}
-        .lang-bar a{margin:0 10px;text-decoration:none;color:#002A55;font-weight:500;}
-        .logo-box{text-align:center;margin:45px 0;position:relative;z-index:1;}
-        .logo-box img{filter:none!important;box-shadow:none!important;-webkit-filter:none!important;background:transparent!important;height:120px;margin:0 18px;vertical-align:middle;}
-        .main-h1{text-align:center;font-size:34px;color:#002A55;font-weight:700;margin-bottom:22px;position:relative;z-index:1;}
-        /* 保留你原来的广告语大小 */
-        .welcome-slogan{text-align:center;font-size:17px;color:#333;line-height:1.9;margin-bottom:100px;padding:0 20px;position:relative;z-index:1;}
-        .contact-foot{text-align:center;margin-top:80px;padding-top:25px;border-top:1px solid #e6ecf2;position:relative;z-index:1;}
-        .wa-link{display:inline-block;background:#25d366;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:500;}
-        .domain-text{margin-top:15px;color:#666;font-size:15px;}
+        .lang-bar{text-align:right;margin-bottom:40px;}
+        .lang-bar a{margin-left:20px;text-decoration:none;color:#08306b;font-weight:500;font-size:16px;cursor:pointer;}
+        .logo-box{text-align:center;margin:50px 0;}
+        .logo-box img{height:120px;margin:0 15px;background:transparent;border:none;}
+        .main-h1{text-align:center;font-size:34px;color:#08306b;font-weight:700;margin-bottom:25px;}
+        .welcome-slogan{text-align:center;font-size:17px;color:#333;line-height:1.9;margin-bottom:120px;padding:0 40px;}
+        .contact-foot{text-align:center;margin-top:100px;padding-top:30px;border-top:1px solid #d8e2dc;}
+        .wa-link{display:inline-block;background:#25d366;color:#fff;padding:13px 36px;border-radius:8px;text-decoration:none;font-size:16px;font-weight:500;}
+        .domain-text{margin-top:20px;color:#555;font-size:15px;}
     </style>
 </head>
 <body>
-    <!-- 动态背景视频（直接加载免费动图，无需你上传） -->
-    <video autoplay muted loop id="bg-video">
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-blue-light-flowing-2317-large.mp4" type="video/mp4">
-    </video>
-
     <div class="lang-bar">
-        <a href=" " onclick="changeLang('fr')">Français</a >
-        <a href="#" onclick="changeLang('en')">English</a >
-        <a href="#" onclick="changeLang('zh')">中文</a >
+        <a onclick="switchLang('fr')">Français</a >
+        <a onclick="switchLang('en')">English</a >
+        <a onclick="switchLang('zh')">中文</a >
     </div>
 
     <div class="logo-box">
-        <img src="shield-logo.png" alt="盾形LOGO">
+        <img src="shield-logo.png" alt="盾徽LOGO">
         <img src="vexorion-logo.png" alt="品牌LOGO">
     </div>
 
-    <!-- 三语标题（ID必须和函数对应） -->
-    <h1 id="h1-zh" class="main-h1">VEXORION 全球医疗防护品牌</h1>
-    <h1 id="h1-en" class="main-h1" style="display:none;">VEXORION Global Medical Protection</h1>
-    <h1 id="h1-fr" class="main-h1" style="display:none;">VEXORION Protection Médicale Mondiale</h1>
+    <h1 id="txtZh" class="main-h1">VEXORION 全球医疗防护品牌</h1>
+    <h1 id="txtEn" class="main-h1" style="display:none;">VEXORION Global Medical Protection</h1>
+    <h1 id="txtFr" class="main-h1" style="display:none;">VEXORION Protection Médicale Mondiale</h1>
 
-    <!-- 三语标语（ID必须和函数对应） -->
-    <div id="slogan-zh" class="welcome-slogan">
-        欢迎您来到：引领全球私人医疗高标准生物防护新维度--VEXORION官方网站<br>
-        我们将用极致的匠心服务精神，让您和您的品牌在新时代乘风破浪、一路高歌。
+    <div id="descZh" class="welcome-slogan">
+欢迎您来到：引领全球私人医疗高标准生物防护新维度的VEXORION官方网站<br>
+我们将用极致的匠心服务精神，让您和您的品牌在新时代乘风破浪、一路高歌。
     </div>
-    <div id="slogan-en" class="welcome-slogan" style="display:none;">
-        Welcome to the official website of VEXORION, leading the new dimension of high-standard private medical biological protection worldwide.<br>
-        We serve with ingenuity to help you and your brand forge ahead in the new era.
+    <div id="descEn" class="welcome-slogan" style="display:none;">
+Welcome to the official website of VEXORION, leading the new dimension of high-standard private medical biological protection worldwide.<br>
+We serve with ingenuity to help you and your brand forge ahead in the new era.
     </div>
-    <div id="slogan-fr" class="welcome-slogan" style="display:none;">
-        Bienvenue sur le site officiel VEXORION, pionnier de la protection biologique médicale haut de gamme mondiale.<br>
-        Nous vous accompagnons avec dévouement pour prospérer dans la nouvelle ère.
+    <div id="descFr" class="welcome-slogan" style="display:none;">
+Bienvenue sur le site officiel VEXORION, pionnier de la protection biologique médicale haut de gamme mondiale.<br>
+Nous vous accompagnons avec dévouement pour prospérer dans la nouvelle ère.
     </div>
 
     <div class="contact-foot">
-        <a href="https://wa.me/212702298888" target="_blank" class="wa-link">WhatsApp 全球商务对接</a >
+        <a href=" " target="_blank" class="wa-link">WhatsApp 全球商务对接</a >
         <p class="domain-text">官方专属域名：vexorion.ma</p >
     </div>
 
-    <script>
-        // 已修复的三语言切换函数
-        function changeLang(lang){
-            // 先隐藏所有语言版本
-            document.getElementById("h1-zh").style.display = "none";
-            document.getElementById("h1-en").style.display = "none";
-            document.getElementById("h1-fr").style.display = "none";
-            document.getElementById("slogan-zh").style.display = "none";
-            document.getElementById("slogan-en").style.display = "none";
-            document.getElementById("slogan-fr").style.display = "none";
-
-            // 再显示对应语言版本
-            document.getElementById("h1-"+lang).style.display = "block";
-            document.getElementById("slogan-"+lang).style.display = "block";
-        }
-    </script>
+<script>
+function switchLang(type){
+    document.getElementById('txtZh').style.display='none';
+    document.getElementById('txtEn').style.display='none';
+    document.getElementById('txtFr').style.display='none';
+    document.getElementById('descZh').style.display='none';
+    document.getElementById('descEn').style.display='none';
+    document.getElementById('descFr').style.display='none';
+    if(type === 'zh'){
+        document.getElementById('txtZh').style.display='block';
+        document.getElementById('descZh').style.display='block';
+    }else if(type === 'en'){
+        document.getElementById('txtEn').style.display='block';
+        document.getElementById('descEn').style.display='block';
+    }else if(type === 'fr'){
+        document.getElementById('txtFr').style.display='block';
+        document.getElementById('descFr').style.display='block';
+    }
+}
+</script>
 </body>
 </html>
