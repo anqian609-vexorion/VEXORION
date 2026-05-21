@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Vexorion Medical Solutions</title>
+    <style>
+        body { font-family: Arial; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .logo { text-align: center; margin: 30px 0; }
+        .logo img { width: 150px; }
+        h1 { color: #002A55; text-align: center; }
+        .lang-switch { text-align: right; margin-bottom: 20px; }
+        .lang-switch a { margin: 0 5px; text-decoration: none; color: #002A55; }
+    </style>
+</head>
+<body>
+    <div class="lang-switch">
+        <a href=" " onclick="showLang('fr')">Français</a >
+        <a href="#" onclick="showLang('en')">English</a >
+        <a href="#" onclick="showLang('zh')">中文</a >
+    </div>
+
+    <div class="logo">
+        < img src="盾形标志.png" alt="Vexorion Logo">
+    </div>
+
+    <div id="content-fr">
+        <h1>Vexorion Medical Solutions</h1>
+        <p>Fournisseur de solutions de protection médicale pour l'Afrique du Nord.</p >
+        <p>Produits: Masques, gants, lingettes désinfectantes, draps médicaux...</p >
+    </div>
+
+    <div id="content-en" style="display: none;">
+        <h1>Vexorion Medical Solutions</h1>
+        <p>Provider of medical protection solutions for North Africa.</p >
+        <p>Products: Masks, gloves, disinfectant wipes, medical sheets...</p >
+    </div>
+
+    <div id="content-zh" style="display: none;">
+        <h1>Vexorion 医疗解决方案</h1>
+        <p>北非医疗防护用品供应商。</p >
+        <p>产品：口罩、手套、消毒湿巾、医用床单等...</p >
+    </div>
+
+    <script>
+        function showLang(lang) {
+            document.querySelectorAll('[id^="content-"]').forEach(el => el.style.display = 'none');
+            document.getElementById('content-' + lang).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
